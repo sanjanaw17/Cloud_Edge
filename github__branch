@@ -1,0 +1,323 @@
+diot@DIOT-PC1:~$ cd Downloads/
+diot@DIOT-PC1:~/Downloads$ ssh-i iot
+iot1.pem       iotserver.pem  
+diot@DIOT-PC1:~/Downloads$ ssh-i iot
+iot1.pem       iotserver.pem  
+diot@DIOT-PC1:~/Downloads$ ssh-i iotserver.pem ubuntu@13.49.244.228
+ssh-i: command not found
+diot@DIOT-PC1:~/Downloads$ ssh -i iotserver.pem ubuntu@13.49.244.228
+Welcome to Ubuntu 24.04.1 LTS (GNU/Linux 6.8.0-1016-aws x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/pro
+
+ System information as of Fri Nov 22 03:15:15 UTC 2024
+
+  System load:  0.0               Temperature:           -273.1 C
+  Usage of /:   32.1% of 6.71GB   Processes:             111
+  Memory usage: 27%               Users logged in:       0
+  Swap usage:   0%                IPv4 address for ens5: 172.31.33.107
+
+ * Ubuntu Pro delivers the most comprehensive open source security and
+   compliance features.
+
+   https://ubuntu.com/aws/pro
+
+Expanded Security Maintenance for Applications is not enabled.
+
+40 updates can be applied immediately.
+To see these additional updates run: apt list --upgradable
+
+1 additional security update can be applied with ESM Apps.
+Learn more about enabling ESM Apps service at https://ubuntu.com/esm
+
+
+*** System restart required ***
+Last login: Thu Nov 21 02:18:02 2024 from 196.1.1.6
+ubuntu@ip-172-31-33-107:~$ mosquitto_
+mosquitto_ctrl    mosquitto_pub     mosquitto_sub     
+mosquitto_passwd  mosquitto_rr      
+ubuntu@ip-172-31-33-107:~$ mosquitto_p
+mosquitto_passwd  mosquitto_pub     
+ubuntu@ip-172-31-33-107:~$ mosquitto_p
+mosquitto_passwd  mosquitto_pub     
+ubuntu@ip-172-31-33-107:~$ mosquitto_passwd /etc/mo
+modprobe.d/     modules         modules-load.d/ mosquitto/
+ubuntu@ip-172-31-33-107:~$ mosquitto_passwd /etc/mosquitto/mybrokerauth diot1
+Warning: File /etc/mosquitto/mybrokerauth has world readable permissions. Future versions will refuse to load this file.
+To fix this, use `chmod 0700 /etc/mosquitto/mybrokerauth`.Warning: File /etc/mosquitto/mybrokerauth owner is not ubuntu. Future versions will refuse to load this file.To fix this, use `chown ubuntu /etc/mosquitto/mybrokerauth`.Warning: File /etc/mosquitto/mybrokerauth group is not ubuntu. Future versions will refuse to load this file.Error creating backup password file "/etc/mosquitto/mybrokerauth.backup.O3Kgxa", not continuing.
+ubuntu@ip-172-31-33-107:~$ sudo mosquitto_passwd /etc/mosquitto/mybrokerauth diot1
+Warning: File /etc/mosquitto/mybrokerauth has world readable permissions. Future versions will refuse to load this file.
+To fix this, use `chmod 0700 /etc/mosquitto/mybrokerauth`.Password: 
+Reenter password: 
+ubuntu@ip-172-31-33-107:~$ ls -l iotserver.pem
+ls: cannot access 'iotserver.pem': No such file or directory
+ubuntu@ip-172-31-33-107:~$ mosquitto_sub -t cdac/pune/diot/temperature -u diot1 -P diot -h 13.49.244.228 -p 1883 -d
+Client null sending CONNECT
+Client null received CONNACK (5)
+Connection error: Connection Refused: not authorised.
+Client null sending DISCONNECT
+ubuntu@ip-172-31-33-107:~$ mosquitto_sub -t cdac/pune/diot/temperature -u diot1 -P diot -h 13.49.244.228 -p 1883 -d
+Client null sending CONNECT
+Client null received CONNACK (5)
+Connection error: Connection Refused: not authorised.
+Client null sending DISCONNECT
+ubuntu@ip-172-31-33-107:~$ sudo service mosquitto restart 
+ubuntu@ip-172-31-33-107:~$ mosquitto_sub -t cdac/pune/diot/temperature -u diot1 -P diot -h 13.49.244.228 -p 1883 -d
+Client null sending CONNECT
+Client null received CONNACK (0)
+Client null sending SUBSCRIBE (Mid: 1, Topic: cdac/pune/diot/temperature, QoS: 0, Options: 0x00)
+Client null received SUBACK
+Subscribed (mid: 1): 0
+dffg
+Client null received PUBLISH (d0, q0, r0, m0, 'cdac/pune/diot/temperature', ... (9 bytes))
+fshgdfjfh
+Client null sending PINGREQ
+Client null received PINGRESP
+Client null sending PINGREQ
+Client null received PINGRESP
+Client null sending PINGREQ
+Client null received PINGRESP
+Client null received PUBLISH (d0, q0, r0, m0, 'cdac/pune/diot/temperature', ... (7 bytes))
+ishaaaa
+Client null sending PINGREQ
+Client null received PINGRESP
+Client null sending PINGREQ
+Client null received PINGRESP
+Client null sending PINGREQ
+Client null received PINGRESP
+Client null sending PINGREQ
+Client null received PINGRESP
+Client null sending PINGREQ
+Client null received PINGRESP
+Client null sending PINGREQ
+Client null received PINGRESP
+Client null sending PINGREQ
+Client null received PINGRESP
+Client null sending PINGREQ
+Client null received PINGRESP
+Client null sending PINGREQ
+Client null received PINGRESP
+Client null sending PINGREQ
+Client null received PINGRESP
+Client null sending PINGREQ
+Client null received PINGRESP
+Client null sending PINGREQ
+Client null received PINGRESP
+Client null sending PINGREQ
+Client null received PINGRESP
+Client null sending PINGREQ
+Client null received PINGRESP
+Client null sending PINGREQ
+Client null received PINGRESP
+Client null sending PINGREQ
+Client null received PINGRESP
+Client null sending PINGREQ
+Client null received PINGRESP
+Client null sending PINGREQ
+Client null received PINGRESP
+Client null sending PINGREQ
+Client null received PINGRESP
+Client null sending PINGREQ
+Client null received PINGRESP
+Client null sending PINGREQ
+Client null received PINGRESP
+Client null sending PINGREQ
+Client null received PINGRESP
+Client null sending PINGREQ
+Client null received PINGRESP
+Client null sending PINGREQ
+Client null received PINGRESP
+Client null sending PINGREQ
+Client null received PINGRESP
+Client null sending PINGREQ
+Client null received PINGRESP
+Client null sending PINGREQ
+Client null received PINGRESP
+Client null sending PINGREQ
+Client null received PINGRESP
+Client null sending PINGREQ
+Client null received PINGRESP
+Client null sending PINGREQ
+Client null received PINGRESP
+Client null sending PINGREQ
+Client null received PINGRESP
+Client null sending PINGREQ
+Client null received PINGRESP
+Client null sending PINGREQ
+Client null received PINGRESP
+Client null sending PINGREQ
+Client null received PINGRESP
+Client null sending PINGREQ
+Client null received PINGRESP
+Client null sending PINGREQ
+Client null received PINGRESP
+Client null sending PINGREQ
+Client null received PINGRESP
+Client null sending PINGREQ
+Client null received PINGRESP
+^CClient null sending DISCONNECT
+ubuntu@ip-172-31-33-107:~$ ssh-keygen
+Generating public/private ed25519 key pair.
+Enter file in which to save the key (/home/ubuntu/.ssh/id_ed25519): 
+Enter passphrase (empty for no passphrase): 
+Enter same passphrase again: 
+Your identification has been saved in /home/ubuntu/.ssh/id_ed25519
+Your public key has been saved in /home/ubuntu/.ssh/id_ed25519.pub
+The key fingerprint is:
+SHA256:xcRDogPY3bBoUM2GzuCPumeuZLBVouJDsvPybVJ6kek ubuntu@ip-172-31-33-107
+The key's randomart image is:
++--[ED25519 256]--+
+|  .+o=.o.oo      |
+|  o.oo=o.+o      |
+| ..++.+   o.     |
+| ..+o  . .       |
+|=..o o  S        |
+|*+. *            |
+|+* + .           |
+|=o*.E            |
+|oO++.            |
++----[SHA256]-----+
+ubuntu@ip-172-31-33-107:~$ cd .ssh
+ubuntu@ip-172-31-33-107:~/.ssh$ ls
+authorized_keys  id_ed25519  id_ed25519.pub  known_hosts
+ubuntu@ip-172-31-33-107:~/.ssh$ cat id_ed25519.pub
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFejsUmiPr79uEhEh80LKyiCE3wYy9eAPYVe4Z7ITDgK ubuntu@ip-172-31-33-107
+ubuntu@ip-172-31-33-107:~/.ssh$ cd
+ubuntu@ip-172-31-33-107:~$ git clone git@github.com:sanjanaw17/Cloud_Computing.git
+Cloning into 'Cloud_Computing'...
+The authenticity of host 'github.com (4.225.11.194)' can't be established.
+ED25519 key fingerprint is SHA256:+DiY3wvvV6TuJJhbpZisF/zLDA0zPMSvHdkr4UvCOqU.
+This key is not known by any other names.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added 'github.com' (ED25519) to the list of known hosts.
+remote: Enumerating objects: 13, done.
+remote: Counting objects: 100% (13/13), done.
+remote: Compressing objects: 100% (9/9), done.
+remote: Total 13 (delta 4), reused 8 (delta 2), pack-reused 0 (from 0)
+Receiving objects: 100% (13/13), 5.50 KiB | 1.83 MiB/s, done.
+Resolving deltas: 100% (4/4), done.
+ubuntu@ip-172-31-33-107:~$ cd Cloud_Computing/
+ubuntu@ip-172-31-33-107:~/Cloud_Computing$ ls
+LICENSE  README.md  helloworld.py
+ubuntu@ip-172-31-33-107:~/Cloud_Computing$ git branch
+* main
+ubuntu@ip-172-31-33-107:~/Cloud_Computing$ git pull
+Already up to date.
+ubuntu@ip-172-31-33-107:~/Cloud_Computing$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean
+ubuntu@ip-172-31-33-107:~/Cloud_Computing$ git checkout -b feature/add
+Switched to a new branch 'feature/add'
+ubuntu@ip-172-31-33-107:~/Cloud_Computing$ git branch
+* feature/add
+  main
+ubuntu@ip-172-31-33-107:~/Cloud_Computing$ touch newfile.txt
+ubuntu@ip-172-31-33-107:~/Cloud_Computing$ ls
+LICENSE  README.md  helloworld.py  newfile.txt
+ubuntu@ip-172-31-33-107:~/Cloud_Computing$ git checkout main
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.
+ubuntu@ip-172-31-33-107:~/Cloud_Computing$ ls
+LICENSE  README.md  helloworld.py  newfile.txt
+ubuntu@ip-172-31-33-107:~/Cloud_Computing$ git checkout feature/add
+Switched to branch 'feature/add'
+ubuntu@ip-172-31-33-107:~/Cloud_Computing$ ls
+LICENSE  README.md  helloworld.py  newfile.txt
+ubuntu@ip-172-31-33-107:~/Cloud_Computing$ git branch
+* feature/add
+  main
+ubuntu@ip-172-31-33-107:~/Cloud_Computing$ git checkout main
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.
+ubuntu@ip-172-31-33-107:~/Cloud_Computing$ git branch
+  feature/add
+* main
+ubuntu@ip-172-31-33-107:~/Cloud_Computing$ git checkout feature/add
+Switched to branch 'feature/add'
+ubuntu@ip-172-31-33-107:~/Cloud_Computing$ rm newfile.txt 
+ubuntu@ip-172-31-33-107:~/Cloud_Computing$ ls
+LICENSE  README.md  helloworld.py
+ubuntu@ip-172-31-33-107:~/Cloud_Computing$ touch notes.md
+ubuntu@ip-172-31-33-107:~/Cloud_Computing$ ls
+LICENSE  README.md  helloworld.py  notes.md
+ubuntu@ip-172-31-33-107:~/Cloud_Computing$ git status
+On branch feature/add
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	notes.md
+
+nothing added to commit but untracked files present (use "git add" to track)
+ubuntu@ip-172-31-33-107:~/Cloud_Computing$ git add notes.md 
+ubuntu@ip-172-31-33-107:~/Cloud_Computing$ git commit -m "New file added"
+[feature/add e6988cc] New file added
+ Committer: Ubuntu <ubuntu@ip-172-31-33-107.eu-north-1.compute.internal>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly. Run the
+following command and follow the instructions in your editor to edit
+your configuration file:
+
+    git config --global --edit
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 notes.md
+ubuntu@ip-172-31-33-107:~/Cloud_Computing$ git config user.
+user.email           user.signingKey      
+user.name            user.useConfigOnly   
+ubuntu@ip-172-31-33-107:~/Cloud_Computing$ git config user.
+user.email           user.signingKey      
+user.name            user.useConfigOnly   
+ubuntu@ip-172-31-33-107:~/Cloud_Computing$ git config user.name sanjanaw17
+ubuntu@ip-172-31-33-107:~/Cloud_Computing$ git config --global user.email wankhedesanjana4@gmail.com
+ubuntu@ip-172-31-33-107:~/Cloud_Computing$ git config --global user.name sanjanaw17
+ubuntu@ip-172-31-33-107:~/Cloud_Computing$ git push origin feature/add 
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 2 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 289 bytes | 289.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+remote: 
+remote: Create a pull request for 'feature/add' on GitHub by visiting:
+remote:      https://github.com/sanjanaw17/Cloud_Computing/pull/new/feature/add
+remote: 
+To github.com:sanjanaw17/Cloud_Computing.git
+ * [new branch]      feature/add -> feature/add
+ubuntu@ip-172-31-33-107:~/Cloud_Computing$ ls
+LICENSE  README.md  helloworld.py  notes.md
+ubuntu@ip-172-31-33-107:~/Cloud_Computing$ nano notes.md
+ubuntu@ip-172-31-33-107:~/Cloud_Computing$ git add.
+git: 'add.' is not a git command. See 'git --help'.
+
+The most similar command is
+	add
+ubuntu@ip-172-31-33-107:~/Cloud_Computing$ git add .
+ubuntu@ip-172-31-33-107:~/Cloud_Computing$ git commit -m "added few line"
+[feature/add 01befe1] added few line
+ 1 file changed, 1 insertion(+)
+ubuntu@ip-172-31-33-107:~/Cloud_Computing$ git push orgin feature/add 
+fatal: 'orgin' does not appear to be a git repository
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+ubuntu@ip-172-31-33-107:~/Cloud_Computing$ git push origin feature/add 
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 2 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 268 bytes | 268.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To github.com:sanjanaw17/Cloud_Computing.git
+   e6988cc..01befe1  feature/add -> feature/add
+
